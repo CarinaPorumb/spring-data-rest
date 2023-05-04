@@ -18,12 +18,13 @@ public class CoffeeLoader implements CommandLineRunner {
     private final CoffeeRepository coffeeRepository;
 
     @Override
-    public void run(String... args) throws Exception {
-
+    public void run(String... args) {
+        loadCoffeeObjects();
     }
 
-
     private synchronized void loadCoffeeObjects() {
+        log.debug("Loading initial data. Count is: {}", coffeeRepository.count());
+
 
         if (coffeeRepository.count() == 0) {
             Random random = new Random();
