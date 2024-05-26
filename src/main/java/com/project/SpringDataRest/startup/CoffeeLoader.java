@@ -2,7 +2,9 @@ package com.project.SpringDataRest.startup;
 
 import com.project.SpringDataRest.entity.Coffee;
 import com.project.SpringDataRest.entity.CoffeeType;
+import com.project.SpringDataRest.entity.Customer;
 import com.project.SpringDataRest.repository.CoffeeRepository;
+import com.project.SpringDataRest.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
@@ -16,6 +18,7 @@ import java.util.Random;
 public class CoffeeLoader implements CommandLineRunner {
 
     private final CoffeeRepository coffeeRepository;
+    private final CustomerRepository customerRepository;
 
     @Override
     public void run(String... args) {
@@ -24,46 +27,31 @@ public class CoffeeLoader implements CommandLineRunner {
 
     private synchronized void loadCoffeeObjects() {
         log.debug("Loading initial data. Count is: {}", coffeeRepository.count());
-
-
         if (coffeeRepository.count() == 0) {
             Random random = new Random();
 
             coffeeRepository.save(Coffee.builder()
-                    .name("Coffee1")
+                    .name("Cappuccino")
                     .coffeeType(CoffeeType.CAPPUCCINO)
                     .price(random.nextInt(75))
                     .version(random.nextLong(5))
                     .build());
 
             coffeeRepository.save(Coffee.builder()
-                    .name("Coffee2")
-                    .coffeeType(CoffeeType.LATTE)
+                    .name("Espresso")
+                    .coffeeType(CoffeeType.ESPRESSO)
                     .price(random.nextInt(75))
                     .version(random.nextLong(5))
                     .build());
 
-            coffeeRepository.save(Coffee.builder()
-                    .name("Coffee3")
-                    .coffeeType(CoffeeType.MOCHA)
-                    .price(random.nextInt(75))
-                    .version(random.nextLong(5))
+
+            customerRepository.save(Customer.builder()
+                    .name("Jane Doe")
                     .build());
 
-            coffeeRepository.save(Coffee.builder()
-                    .name("Coffee4")
-                    .coffeeType(CoffeeType.CORTADO)
-                    .price(random.nextInt(75))
-                    .version(random.nextLong(5))
-                    .build());
-
-            coffeeRepository.save(Coffee.builder()
-                    .name("Coffee5")
-                    .coffeeType(CoffeeType.FLAT_WHITE)
-                    .price(random.nextInt(75))
-                    .version(random.nextLong(5))
+            customerRepository.save(Customer.builder()
+                    .name("Jane Doe")
                     .build());
         }
-
     }
 }
