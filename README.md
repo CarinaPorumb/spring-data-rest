@@ -1,7 +1,8 @@
 # Spring Data-Rest
 
 This is a sample Java application that uses Spring Data-Rest to expose a RESTful API for managing coffee data.
-The application uses an H2 in-memory database and supports the following features:
+The application uses an H2 in-memory database.
+
 ---
 
 ## Technologies Used
