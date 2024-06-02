@@ -10,7 +10,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import java.util.List;
 import java.util.UUID;
 
-@RepositoryRestResource(path = "coffee", collectionResourceRel = "all_coffees")
+@RepositoryRestResource(path = "coffees", collectionResourceRel = "all_coffees")
 public interface CoffeeRepository extends JpaRepository<Coffee, UUID> {
 
     Page<Coffee> findByName(String name, Pageable pageable);

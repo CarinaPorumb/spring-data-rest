@@ -7,7 +7,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import java.util.List;
 import java.util.UUID;
 
-@RepositoryRestResource(path = "customer", collectionResourceRel = "all_customers")
+@RepositoryRestResource(path = "customers", collectionResourceRel = "all_customers")
 public interface CustomerRepository extends JpaRepository<Customer, UUID> {
 
     List<Customer> findByName(String name);

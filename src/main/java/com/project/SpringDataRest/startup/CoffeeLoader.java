@@ -46,7 +46,7 @@ public class CoffeeLoader implements CommandLineRunner {
 
 
             customerRepository.save(Customer.builder()
-                    .name("Jane Doe")
+                    .name("John Doe")
                     .build());
 
             customerRepository.save(Customer.builder()
