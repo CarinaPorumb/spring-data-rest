@@ -43,7 +43,6 @@ Make sure you have the following installed on your system:
 
     ```bash
     git clone https://github.com/CarinaPorumb/SpringDataRest.git
-    cd SpringDataRest
     ```
 
 2. Build the project using Maven:
